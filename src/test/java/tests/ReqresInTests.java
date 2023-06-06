@@ -238,7 +238,7 @@ public class ReqresInTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Test of checking IDs and names in user list)")
+    @DisplayName("Test of checking IDs and names in user list")
     void getUsersListBodyIdsNamesTest() {
         given()
                 .log().uri()
