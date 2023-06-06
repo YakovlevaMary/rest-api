@@ -7,7 +7,8 @@ plugins {
 def selenideVersion = "6.13.0",
     jUnitVersion = "5.9.3",
     slf4jVersion = "2.0.7",
-    restAssuredVersion = "5.3.0"
+    restAssuredVersion = "5.3.0",
+    allureVersion = "2.19.0"
 
 repositories {
     mavenCentral()
@@ -20,6 +21,7 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion",
             "io.rest-assured:rest-assured:$restAssuredVersion",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.seleniumhq.selenium:selenium-java:3.141.59",
             "org.junit.jupiter:junit-jupiter-api:5.8.1"
     )
