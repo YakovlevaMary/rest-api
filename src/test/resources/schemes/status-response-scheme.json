@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "total": {
+      "type": "integer"
+    },
+    "used": {
+      "type": "integer"
+    },
+    "queued": {
+      "type": "integer"
+    },
+    "pending": {
+      "type": "integer"
+    },
+    "browsers": {
+      "type": "object",
+      "properties": {
+        "android": {
+          "type": "object",
+          "properties": {
+            "8.1": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "8.1"
+          ]
+        },
+        "chrome": {
+          "type": "object",
+          "properties": {
+            "100.0": {
+              "type": "object"
+            },
+            "99.0": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "100.0",
+            "99.0"
+          ]
+        },
+        "chrome-mobile": {
+          "type": "object",
+          "properties": {
+            "86.0": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "86.0"
+          ]
+        },
+        "firefox": {
+          "type": "object",
+          "properties": {
+            "97.0": {
+              "type": "object"
+            },
+            "98.0": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "97.0",
+            "98.0"
+          ]
+        },
+        "opera": {
+          "type": "object",
+          "properties": {
+            "84.0": {
+              "type": "object"
+            },
+            "85.0": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "84.0",
+            "85.0"
+          ]
+        }
+      },
+      "required": [
+        "android",
+        "chrome",
+        "chrome-mobile",
+        "firefox",
+        "opera"
+      ]
+    }
+  },
+  "required": [
+    "total",
+    "used",
+    "queued",
+    "pending",
+    "browsers"
+  ]
+}

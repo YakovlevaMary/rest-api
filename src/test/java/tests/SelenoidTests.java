@@ -10,12 +10,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class SelenoidTest {
-    /*
-    1. Make request to https://selenoid.autotests.cloud/status
-    2. Get response { total: 20, used: 0, queued: 0, pending: 0, browsers: ...
-    3. Check total is 20
-    */
+public class SelenoidTests {
 
     @Test
     void checkTotal() {
