@@ -2,7 +2,6 @@ package tests;
 
 import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -12,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 import static specs.Specs.*;
 
-public class ReqresInWithSpecsTest extends TestBaseRemote{
+public class ReqresInWithSpecsTest {
     String expectedToken = "QpwL5tke4Pnpja7X4",
             userName = "morpheus",
             userFirstJob = "zion resident",
@@ -37,7 +36,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
             expectedLastColorID = 6;
 
     @Test
-    @Tag("remote")
     @DisplayName("User login is successful")
     void successfulLoginWithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
@@ -57,7 +55,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("User login and password are invalid (missing json format, error 400)")
     void negativeLoginAndPassword400WithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
@@ -77,7 +74,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("User login is unsuccessful as password is missed (error 400)")
     void negativePassword400WithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
@@ -97,7 +93,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("User registration is successful")
     void successfulRegistrationWithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
@@ -119,7 +114,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("User registration is unsuccessful (password is missed, error 400)")
     void negativeRegistrationTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
@@ -138,7 +132,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Test of delete option")
     void deleteWithSpecsTest() {
         step("Make request", () ->
@@ -151,7 +144,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Test of patch option")
     void patchWithSpecsTest() {
 
@@ -177,7 +169,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Test of put option")
     void putWithSpecsTest() {
         CreatePatchPutRequestModel requestBody = new CreatePatchPutRequestModel();
@@ -201,7 +192,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Test of creation via POST option")
     void creationWithSpecsTest() {
         CreatePatchPutRequestModel requestBody = new CreatePatchPutRequestModel();
@@ -228,7 +218,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Display user list page №2 and check its scheme")
     void getUsersListSchemeWithSpecsTest() {
         step("Make request", () ->
@@ -242,7 +231,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Check users list by IDs and names")
     void getUsersListIDsAndNamesWithSpecsTest() {
 
@@ -265,7 +253,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Test of sending an unknown request (single user №23 doesn't exist)")
     void getNonExistentUserWithSpecsTest() {
         step("Make request", () ->
@@ -277,7 +264,7 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
+
     @DisplayName("Test of single user data content")
     void getSingleUserDataWithSpecsTest() {
 
@@ -295,7 +282,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
     }
 
     @Test
-    @Tag("remote")
     @DisplayName("Test of checking IDs and names in color list")
     void getColorListIdsNamesWithSpecsTest() {
         ColorsResponseModel response = step("Make request", () ->
@@ -314,5 +300,6 @@ public class ReqresInWithSpecsTest extends TestBaseRemote{
         step("Check name of the last user in response", () ->
                 assertThat(response.getData().getLast().getName()).isEqualTo(expectedNameOfLastColor));
     }
+
 
 }

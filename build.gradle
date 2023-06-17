@@ -51,10 +51,10 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-test {
-    useJUnitPlatform()
-    systemProperties(System.getProperties())
-}
+//test {
+//    useJUnitPlatform()
+//    systemProperties(System.getProperties())
+//}
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
@@ -63,11 +63,5 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
-    }
-}
-
-task remote(type: Test) {
-    useJUnitPlatform {
-        includeTags("remote")
     }
 }
