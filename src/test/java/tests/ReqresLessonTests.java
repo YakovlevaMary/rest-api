@@ -14,10 +14,9 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.LoginSpecs.loginRequestSpec;
-import static specs.LoginSpecs.loginResponseSpec;
+import static specs.Specs.*;
 
-public class ReqresLessonTests extends TestBase {
+public class ReqresLessonTests {
 
     @Test
     void successfulLoginBadPracticeTest() {
@@ -183,13 +182,13 @@ public class ReqresLessonTests extends TestBase {
         requestBody.setPassword("cityslicka");
 
         LoginResponseLombokModel loginResponse = step("Make request", () ->
-                given(loginRequestSpec)
+                given(requestSpec)
 //                    .spec(loginRequestSpec)
                         .body(requestBody)
                         .when()
                         .post("login")
                         .then()
-                        .spec(loginResponseSpec)
+                        .spec(responseWithCode200Spec)
                         .extract().as(LoginResponseLombokModel.class));
         step("Check response", () ->
                 assertEquals("QpwL5tke4Pnpja7X4", loginResponse.getToken()));

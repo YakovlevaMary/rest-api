@@ -5,12 +5,26 @@ plugins {
 }
 
 
-
 def selenideVersion = "6.13.0",
     jUnitVersion = "5.9.3",
     slf4jVersion = "2.0.7",
     restAssuredVersion = "5.3.0",
     allureVersion = "2.19.0"
+
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -24,8 +38,7 @@ dependencies {
             "io.rest-assured:rest-assured:$restAssuredVersion",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
-            "org.seleniumhq.selenium:selenium-java:3.141.59",
-            "org.junit.jupiter:junit-jupiter-api:5.8.1"
+            "org.assertj:assertj-core:3.24.2"
     )
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.8.1')
 }
@@ -49,5 +62,11 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+}
+
+task remote(type: Test) {
+    useJUnitPlatform {
+        includeTags("remote")
     }
 }
