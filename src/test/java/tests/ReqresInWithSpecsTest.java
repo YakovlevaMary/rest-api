@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 import static specs.Specs.*;
 
-public class ReqresInWithSpecsTest {
+public class ReqresInWithSpecsTest extends TestBaseRemote{
     String expectedToken = "QpwL5tke4Pnpja7X4",
             userName = "morpheus",
             userFirstJob = "zion resident",
