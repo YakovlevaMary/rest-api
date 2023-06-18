@@ -264,7 +264,6 @@ public class ReqresInWithSpecsTest {
     }
 
     @Test
-
     @DisplayName("Test of single user data content")
     void getSingleUserDataWithSpecsTest() {
 
